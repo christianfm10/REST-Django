@@ -14,20 +14,22 @@ class get_delete_update_movie(RetrieveUpdateDestroyAPIView):
         try:
             movie = Movie.objects.get(pk=pk)
         except Movie.DoesNotExist:
-            content = {
-                'status': 'Not Found'
-            }
-            return Response(content, status=status.HTTP_404_NOT_FOUND)
+            return None
         return movie
 
     # Get a movie
     def get(self, request, pk):
 
         movie = self.get_queryset(pk)
-        if movie.status_code == status.HTTP_404_NOT_FOUND:
-            return movie
-        serializer = MovieSerializer(movie)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        if movie:
+            serializer = MovieSerializer(movie)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+            # return movie
+        content = {
+            'status': 'Not Found'
+        }
+        return Response(content, status=status.HTTP_404_NOT_FOUND)
+
 
     # Update a movie
     def put(self, request, pk):
