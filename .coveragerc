@@ -1,0 +1,36 @@
+[report]
+show_missing = True
+exclude_lines =
+    pragma: no cover
+    def _unicode_
+    def _str_
+    def get_help_text
+omit =
+    /migrations/
+    websockets/*
+    search/*
+    fabfile.py
+    move_image.py
+    */apps.py
+    */_init_.py
+    /tests/
+    */social/views.py
+    */social/utils.py
+    */setups.py
+    */test_models.py
+    */test_forms.py
+    */test_serializers.py
+    */test_views.py
+    */mommy_recipes.py
+    */tests.py
+    */test.py
+    */manager.py
+    */manage.py
+    */emails.py
+    */email_sender.py
+    */admin.py
+    */urls.py
+    */routing.py
+    */wsgi.py
+    */constants.py
+    */core/validators.py

@@ -8,7 +8,7 @@ from .views import RegisterView, CustomLoginView
 urlpatterns = [
     url(r'^', include('movies.urls')),
     url(r'^rest-auth/login/', CustomLoginView.as_view()),
-    url(r'^rest-auth/registration/', RegisterView.as_view()),
+    url(r'^rest-auth/registration/', RegisterView.as_view(), name='registration'),
     url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^admin/', admin.site.urls),
 ]
